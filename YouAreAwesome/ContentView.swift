@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var message: String = ""
     @State private var imageName: String = ""
+    @State private var imageNumber = 0
     var body: some View {
         
         VStack {
@@ -34,7 +35,18 @@ struct ContentView: View {
                     let message2 = "You Are Great!"
                     
                     message = ( message == message1 ? message2 : message1 )
-                    imageName = ( imageName == "image0" ? "image1" : "image0" )
+                    //imageName = ( imageName == "image0" ? "image1" : "image0" )
+                    
+                    // TODO: - Update the imageName variable -
+                    imageName = "image\(imageNumber)"
+                    imageNumber += 1
+                    
+                    if imageNumber > 9 {
+                        imageNumber = 0
+                        
+                    }
+                    
+                    print(imageNumber)
                 }
                 
             }
